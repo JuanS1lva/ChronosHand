@@ -68,6 +68,9 @@
           </div>
           <h3>Arrastra tu Timelapse aquí</h3>
           <p>Formatos de video <strong>.mp4</strong>, <strong>.webm</strong> o <strong>.mov</strong> locales.</p>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.75rem; opacity: 0.85; max-width: 280px; text-align: center;">
+            🔒 Tu video se procesa 100% de forma local en tu navegador y nunca se sube a internet.
+          </p>
           <button class="btn btn-primary" style="margin-top: 1rem;" id="select-file-btn">Seleccionar archivo</button>
           <input type="file" id="file-input" class="file-input" accept="video/mp4, video/webm, video/quicktime" />
         </div>
@@ -209,6 +212,11 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--secondary);"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
               <span>Tip: Puedes arrastrar y soltar un archivo de video directamente en la pantalla.</span>
             </div>
+
+            <div class="local-info-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--success);"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>🔒 <strong>Procesamiento Local Seguro:</strong> Tu video se reproduce directamente desde tu dispositivo. No se sube a ningún servidor ni a la nube.</span>
+            </div>
           </div>
 
           <!-- Tab Panel: Help Info -->
@@ -246,11 +254,14 @@
         <!-- MediaPipe loading state dot -->
         <div id="app-status" class="status-indicator-dot loading" title="Estado de MediaPipe"></div>
         
-        <!-- Quick Camera Toggle Button -->
-        <button class="dock-btn btn-camera-quick" id="quick-toggle-camera-btn" title="Activar Cámara" disabled>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="quick-cam-icon-off"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="quick-cam-icon-on" class="hidden" style="color: var(--primary-hover);"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/><path d="M6 12h4"/><path d="M8 10v4"/></svg>
-        </button>
+        <!-- Quick Camera Toggle Button Wrapper & Tooltip -->
+        <div class="quick-camera-wrapper" style="position: relative; display: flex;">
+          <button class="dock-btn btn-camera-quick" id="quick-toggle-camera-btn" title="Activar Cámara" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="quick-cam-icon-off"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="quick-cam-icon-on" class="hidden" style="color: var(--primary-hover);"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/><path d="M6 12h4"/><path d="M8 10v4"/></svg>
+          </button>
+          <div class="camera-hint-badge" id="camera-hint">¡Activa la cámara aquí!</div>
+        </div>
         
         <div class="dock-divider"></div>
         

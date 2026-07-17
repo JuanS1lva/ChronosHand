@@ -60,6 +60,7 @@ const fpsCounter = document.getElementById('fps-counter');
 const quickToggleCameraBtn = document.getElementById('quick-toggle-camera-btn');
 const quickCamIconOn = document.getElementById('quick-cam-icon-on');
 const quickCamIconOff = document.getElementById('quick-cam-icon-off');
+const cameraHint = document.getElementById('camera-hint');
 
 const gaugeFill = document.getElementById('gauge-fill');
 const minMarker = document.getElementById('min-marker');
@@ -448,6 +449,7 @@ async function startWebcamStream() {
       }
       if (quickCamIconOff) quickCamIconOff.classList.add('hidden');
       if (quickCamIconOn) quickCamIconOn.classList.remove('hidden');
+      if (cameraHint) cameraHint.classList.add('hidden');
       
       camStatusLbl.textContent = 'Rastreo activo';
       
@@ -500,6 +502,7 @@ function stopWebcamStream() {
   }
   if (quickCamIconOff) quickCamIconOff.classList.remove('hidden');
   if (quickCamIconOn) quickCamIconOn.classList.add('hidden');
+  if (cameraHint) cameraHint.classList.remove('hidden');
   
   camStatusLbl.textContent = 'Cámara inactiva';
   fpsCounter.textContent = '-- FPS';

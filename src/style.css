@@ -1019,3 +1019,56 @@ body {
   color: #fff !important;
   box-shadow: 0 4px 12px var(--success-glow) !important;
 }
+
+/* Privacy Note Box */
+.local-info-box {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(16, 185, 129, 0.04);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  border-radius: 12px;
+  padding: 0.65rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+/* Camera Hint Badge Tooltip */
+.camera-hint-badge {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(33, 158, 188, 0.3);
+  z-index: 45;
+  pointer-events: none;
+  animation: bounce-hint 2s infinite ease-in-out;
+}
+
+.camera-hint-badge::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--primary) transparent transparent transparent;
+}
+
+@keyframes bounce-hint {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+}
